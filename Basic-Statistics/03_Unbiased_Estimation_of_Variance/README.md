@@ -4,21 +4,26 @@
 **Difficulty:** Medium
 
 ## Problem Statement
-<!-- Describe the question/problem here -->
+Prove that the sample variance formula is an unbiased estimation of the population variance.
 
 ## Approach
-<!-- Add your approach and understanding of the concept -->
+Main Topic: Mathematical proof that the sample variance formula (with denominator n-1) is an unbiased estimator of the population variance.
+
+Key Takeaways:
+1) An estimator is unbiased when its expected value equals the true population parameter: E[sample statistic] = population parameter
+2) The proof leverages expectation operator rules (linearity, extracting constants) and substitutes established variance formulas
+3) The critical result shows that dividing by (n-1) instead of n corrects for the bias introduced by using the sample mean rather than the population mean
+4) The (n-1) denominator (Bessel's correction) ensures the sample variance is an unbiased estimator, while dividing by n would underestimate the true variance
+5) This foundational result underpins why statistical software and formulas use (n-1) for sample variance calculations
 
 ## Solution
 See `solution.ipynb` for the Python implementation, simulation, or proof.
 
 ## Resources
-<!-- Add links to helpful resources, papers, or documentation -->
+- [Unbiased Estimation of Variance - Wikipedia](https://en.wikipedia.org/wiki/Unbiased_estimation_of_variance)
+- [Variance - Wikipedia](https://en.wikipedia.org/wiki/Variance)
 
 ## LinkedIn Post
-<!-- Link to LinkedIn post explaining this concept -->
-<!-- Example: [LinkedIn Post](https://www.linkedin.com/posts/your-post-url) -->
+
 
 ## Substack Article
-<!-- Link to Substack article with detailed explanation -->
-<!-- Example: [Substack Article](https://your-substack.com/p/article-title) -->
