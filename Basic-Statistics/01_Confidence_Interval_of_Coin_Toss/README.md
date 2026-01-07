@@ -4,21 +4,10 @@
 **Difficulty:** Medium
 
 ## Problem Statement
-<!-- Describe the question/problem here -->
-
-## Approach
-<!-- Add your approach and understanding of the concept -->
-
-## Solution
-See `solution.ipynb` for the Python implementation, simulation, or proof.
-
-## Resources
-<!-- Add links to helpful resources, papers, or documentation -->
+How can you calculate the confidence interval for the proportion of heads in a series of coin tosses
 
 ## LinkedIn Post
-<!-- Link to LinkedIn post explaining this concept -->
-<!-- Example: [LinkedIn Post](https://www.linkedin.com/posts/your-post-url) -->
+https://www.linkedin.com/posts/ajay-sai_ajay-miryala-ajaymiryala-share-7414285065033015296-X5wu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB9gB1kB6Qhuvd4HLYfBYH93lOEoOdaZeJ0
 
 ## Substack Article
-<!-- Link to Substack article with detailed explanation -->
-<!-- Example: [Substack Article](https://your-substack.com/p/article-title) -->
+https://substack.com/@ajaymiryala/note/c-195941285?r=bq63v&utm_source=notes-share-action&utm_medium=web

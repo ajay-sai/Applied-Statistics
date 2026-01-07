@@ -24,6 +24,7 @@ See `solution.ipynb` for the Python implementation, simulation, or proof.
 - [Variance - Wikipedia](https://en.wikipedia.org/wiki/Variance)
 
 ## LinkedIn Post
-
+https://www.linkedin.com/posts/ajay-sai_why-sample-variance-divides-by-n-1-a-complete-share-7414434107339751424-4ekj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB9gB1kB6Qhuvd4HLYfBYH93lOEoOdaZeJ0
 
 ## Substack Article
+https://open.substack.com/pub/ajaymiryala/p/why-sample-variance-divides-by-n?utm_campaign=post-expanded-share&utm_medium=web
