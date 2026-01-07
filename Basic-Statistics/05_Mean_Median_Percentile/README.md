@@ -4,16 +4,19 @@
 **Difficulty:** Easy
 
 ## Problem Statement
-<!-- Describe the question/problem here -->
+When would you use the mean, median, and percentile?
 
 ## Approach
-<!-- Add your approach and understanding of the concept -->
+Normal distribution?
+- Use mean or median (they'll be nearly identical)
+Skewed distribution or outliers present?
+- Use median for central tendency
+- Report mean alongside for completeness, but don't rely on it alone
+Need tail insights (low/high extremes)?
+- Use percentiles (p10, p90, p95, p99, etc.)
 
 ## Solution
 See `solution.ipynb` for the Python implementation, simulation, or proof.
-
-## Resources
-<!-- Add links to helpful resources, papers, or documentation -->
 
 ## LinkedIn Post
 <!-- Link to LinkedIn post explaining this concept -->
