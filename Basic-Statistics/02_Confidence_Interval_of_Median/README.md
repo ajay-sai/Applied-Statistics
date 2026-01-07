@@ -4,21 +4,16 @@
 **Difficulty:** Medium
 
 ## Problem Statement
-<!-- Describe the question/problem here -->
+How would you get the Confidence Interval of Median?
 
 ## Approach
-<!-- Add your approach and understanding of the concept -->
+Bootstrapping gives a flexible, assumption‑light way to estimate the confidence interval of the median. Instead of relying on analytic formulas, you let the data speak by repeatedly resampling it.​
 
 ## Solution
 See `solution.ipynb` for the Python implementation, simulation, or proof.
 
-## Resources
-<!-- Add links to helpful resources, papers, or documentation -->
-
 ## LinkedIn Post
-<!-- Link to LinkedIn post explaining this concept -->
-<!-- Example: [LinkedIn Post](https://www.linkedin.com/posts/your-post-url) -->
+https://www.linkedin.com/posts/ajay-sai_ajay-miryala-ajaymiryala-share-7414285065033015296-X5wu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB9gB1kB6Qhuvd4HLYfBYH93lOEoOdaZeJ0
 
 ## Substack Article
-<!-- Link to Substack article with detailed explanation -->
-<!-- Example: [Substack Article](https://your-substack.com/p/article-title) -->
+https://substack.com/@ajaymiryala/note/c-195948786?r=bq63v&utm_source=notes-share-action&utm_medium=web
