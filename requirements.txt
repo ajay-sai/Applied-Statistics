@@ -14,8 +14,12 @@ seaborn>=0.12.0
 jupyter>=1.0.0
 ipykernel>=6.20.0
 
+# Dev tooling
+ruff>=0.9.0
+
 # Additional useful libraries
 scikit-learn>=1.2.0  # For machine learning and statistical modeling
 
 # Survival analysis (used in Statistical-Bias/01_Health_Monitoring_Device)
 lifelines>=0.28.0
+
