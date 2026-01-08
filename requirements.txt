@@ -16,3 +16,6 @@ ipykernel>=6.20.0
 
 # Additional useful libraries
 scikit-learn>=1.2.0  # For machine learning and statistical modeling
+
+# Survival analysis (used in Statistical-Bias/01_Health_Monitoring_Device)
+lifelines>=0.28.0

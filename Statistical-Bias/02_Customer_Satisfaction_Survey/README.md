@@ -4,16 +4,17 @@
 **Difficulty:** Medium
 
 ## Problem Statement
-<!-- Describe the question/problem here -->
+Your company decides to conduct a customer satisfaction survey by emailing its survey link to a random selection of 10,000 customers who made a purchase in the last 6 months and reside in New York City. The survey includes questions about customer service, product quality, and overall satisfaction. Based on the responses, the company plans to implement targeted improvements. What potential biases could impact the validity of the survey results, and how would you recommend addressing these biases?
 
 ## Approach
-<!-- Add your approach and understanding of the concept -->
+1) Three critical bias types threaten survey validity: sampling bias (NYC-only, recent purchasers), non-response bias (extreme experiences respond more), and seasonal bias (temporal variation in satisfaction)
+2) Sampling bias stems from unrepresentative geographic and temporal constraints, missing valuable insights from inactive customers and other regions
+3) Non-response bias mitigation requires both incentivization strategies and statistical correction via propensity score weighting
+4) Seasonal bias requires longitudinal survey deployment across multiple time periods to capture year-round variation in customer sentiment
+5) Broadening sampling criteria to include browsers (non-purchasers) and longer time windows provides more generalizable insights for business decisions
 
 ## Solution
 See `solution.ipynb` for the Python implementation, simulation, or proof.
-
-## Resources
-<!-- Add links to helpful resources, papers, or documentation -->
 
 ## LinkedIn Post
 <!-- Link to LinkedIn post explaining this concept -->
