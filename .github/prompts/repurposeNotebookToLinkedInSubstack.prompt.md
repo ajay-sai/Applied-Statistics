@@ -6,6 +6,8 @@ argument-hint: Path to a question folder or paste notebook/markdown cells + goal
 
 You are repurposing a single applied-statistics question’s solution into publish-ready content for this repo.
 
+Key principle: when you include code, it must be copied EXACTLY from the notebook (verbatim), not rewritten or simplified.
+
 ## Repo context (important)
 
 - This repository is a set of independent question folders.
@@ -41,6 +43,12 @@ Section 3 – Substack deep dive draft
 
 - Use Markdown headings (`#`, `##`, `###`).
 - Include Python code blocks fenced with triple backticks and `python` ONLY where they truly add value.
+- **Code fidelity rule (non-negotiable):** Any code you include MUST be copied verbatim from the question folder’s `solution.ipynb` (or the notebook content the user pasted). Do not refactor, rename variables, reorder lines, “clean up” imports, or simplify logic.
+- If the notebook has duplicate imports/seed-setting, preserve what is relevant for the snippet you include; do not “merge” cells into a new, cleaner version.
+- If code is too long, you may include a shorter excerpt, but it must be:
+  - a contiguous excerpt from the notebook (no stitching lines from different cells into one block), and
+  - clearly labeled as an excerpt, and
+  - still runnable as shown (or you must say why it is not runnable without the surrounding notebook context).
 - Do NOT use table formatting; use bullets instead.
 - **Body Text Math:** DO NOT render LaTeX (no `$...$`). Use readable text or code-style math like `s^2`, `theta_hat`, `p_value`.
 - End with a dedicated **Formula Reference** section containing a single code block of raw LaTeX strings for all non-trivial formulas used.
@@ -58,6 +66,8 @@ Then add a short “Post-run notes” appendix (4 mini-sections):
    - Do not invent results, metrics, or claims not supported by the notebook.
    - If the notebook is purely simulated, say so.
    - If a section is conceptual (no data), keep it conceptual.
+   - Do not claim you “ran” code unless execution output is explicitly provided.
+   - If you mention a numeric value (e.g., response rate, ESS, p-value), it must come from the notebook text/outputs or be explicitly labeled as a hypothetical/example.
 
 If the user only provides a pasted “Content” block (no notebook), treat it as the source of truth and:
 
@@ -66,8 +76,9 @@ If the user only provides a pasted “Content” block (no notebook), treat it a
 
 2. **Make it reproducible for readers.**
 
-   - If the notebook simulates data, mention seed-setting and show minimal reproducible code.
-   - Prefer small, copy-pasteable snippets.
+   - If the notebook simulates data, mention seed-setting and show the notebook’s exact seed-setting code (verbatim) in the same form as the notebook.
+   - Prefer small, copy-pasteable snippets, but never at the expense of the code fidelity rule (verbatim excerpts only).
+   - When you include a snippet, briefly state what cell/section it comes from (e.g., “from the ‘Propensity Score Weighting’ section”) without referencing internal cell IDs.
 
 3. **Audience fit.**
 
@@ -118,8 +129,18 @@ If the user only provides a pasted “Content” block (no notebook), treat it a
 
 - Keep imports explicit.
 - Prefer `numpy`, `pandas`, `scipy`, `statsmodels`, `sklearn`, `matplotlib` (repo deps).
-- If reusing notebook code, keep it consistent with the notebook (variable names, assumptions).
-- Add short inline comments for non-obvious steps.
+- If reusing notebook code, keep it consistent with the notebook (variable names, assumptions) by copying it verbatim.
+- Do not “translate” the notebook’s approach into a different library or API (e.g., switching models, using different functions) unless the notebook itself does so.
+- Only add commentary as surrounding prose in the article. Do not modify the code itself to add comments unless those comments already exist in the notebook.
+
+## Source-of-truth and excerpting rules
+
+- The `solution.ipynb` is authoritative for code and analysis.
+- When you include code:
+  - copy exactly what appears in the notebook (including blank lines and comments),
+  - preserve the notebook’s variable names and the order of operations,
+  - do not “simplify” for readability by changing logic.
+- When you do NOT include code for a concept, describe it in prose and (optionally) point the reader to the notebook for full implementation.
 
 ## Guardrails
 
@@ -127,4 +148,6 @@ If the user only provides a pasted “Content” block (no notebook), treat it a
 - No clickbait.
 - No rendered LaTeX in body text.
 - Don’t use tables.
+- Do not fabricate citations, links, or quotes from the Resources section.
+- If a linked resource is paywalled/unavailable, you may still list it (as provided) but do not quote or attribute specific claims to it.
 - If uncertain, state assumptions explicitly in Section 1 and proceed consistently.
