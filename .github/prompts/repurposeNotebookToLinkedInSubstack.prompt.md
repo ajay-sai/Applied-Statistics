@@ -50,8 +50,17 @@ Section 3 – Substack deep dive draft
   - clearly labeled as an excerpt, and
   - still runnable as shown (or you must say why it is not runnable without the surrounding notebook context).
 - Do NOT use table formatting; use bullets instead.
-- **Body Text Math:** DO NOT render LaTeX (no `$...$`). Use readable text or code-style math like `s^2`, `theta_hat`, `p_value`.
-- End with a dedicated **Formula Reference** section containing a single code block of raw LaTeX strings for all non-trivial formulas used.
+- Do NOT use table formatting; use bullets instead.
+- **Math / equations (copy-safe for Substack):**
+  - In the article body, write equations in plain text / ASCII so copying does not convert them into mangled Unicode math.
+    - Example (plain text): `d_hat_MLE = X_max = max_i X_i`
+    - Example (plain text): `E[X_max] = (N/(N+1)) * d`
+  - If you want the reader to have “nice rendered math”, do NOT inline-render LaTeX in the body.
+    Instead, include raw LaTeX in fenced code blocks so it can be pasted into Substack’s LaTeX/equation block.
+  - When you include LaTeX, put ONLY LaTeX inside the code fence (no prose), and prefer one formula per code block.
+    - Use `latex` as the fence language when possible.
+    - Do not include surrounding `$...$` unless Substack requires it; default to plain LaTeX (no dollars).
+- End with a dedicated **Formula Reference** section containing LaTeX-only fenced code blocks for all non-trivial formulas used (one formula per block).
 
 Then add a short “Post-run notes” appendix (4 mini-sections):
 
