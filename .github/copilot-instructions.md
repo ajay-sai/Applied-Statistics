@@ -1,35 +1,58 @@
 # Copilot instructions for this repo
 
-## Repo shape (what you’re editing)
-- This is a learning repository of **many small, independent exercises**.
-- Canonical structure is: one topic folder → many numbered question folders → `README.md` + `solution.ipynb`.
-  - Examples: `Basic-Statistics/03_Unbiased_Estimation_of_Variance/`, `Hypothesis-Testing/03_CLT_and_Z_Test/`.
+## What this repo is
 
-## Conventions to preserve
-- **Do not reorganize folders** or rename question directories; numbering is part of navigation.
-- Each question folder’s `README.md` follows the same template sections:
-  - `## Problem Statement`, `## Approach`, `## Solution` (points to the notebook), `## Resources`, `## LinkedIn Post`, `## Substack Article`.
-- Keep edits **scoped to a single question folder** unless the user explicitly asks for repo-wide changes.
+- A learning repository of **many small, independent statistics exercises**.
+- Canonical structure is: topic folder → numbered question folder → `README.md` + (usually) `solution.ipynb`.
+  - Example: `Basic-Statistics/03_Unbiased_Estimation_of_Variance/`.
 
-## Notebook workflow (how to run)
-- Install dependencies from `requirements.txt`:
-  - `pip install -r requirements.txt`
-- Run notebooks via Jupyter:
-  - `jupyter notebook`
-- Notebooks are the “source of truth” for implementations; the folder README should stay lightweight and link to `solution.ipynb`.
+## Golden rules (don’t break navigation)
 
-## What good changes look like here
-- When asked to “fill in” a problem, update the folder `README.md` placeholders (HTML comments) with:
-  - a clear problem statement, a short approach explanation, and relevant resources.
-- When changing a notebook, prefer:
-  - reproducible cells (set seeds when simulating),
-  - clear markdown headings mirroring the README sections,
-  - minimal external data dependencies (generate synthetic data unless a dataset is already present).
+- **Do not rename or reorganize** topic/question directories; the numbering is part of the repo’s navigation.
+- Keep changes **scoped to a single question folder** unless explicitly asked for repo-wide edits.
 
-## Environment notes
-- VS Code settings select the system Python (`.vscode/settings.json`). Avoid adding heavy tooling/config unless requested.
+## Per-question contract (README + notebook)
+
+- Each question folder’s `README.md` follows the same sections:
+  - `## Problem Statement`, `## Approach`, `## Solution` (links to the notebook), `## Resources`, `## LinkedIn Post`, `## Substack Article`.
+- The notebook (`solution.ipynb`) is the **source of truth** for code/math/plots; keep the folder `README.md` lightweight and pointing to it.
+
+## How to run
+
+- Install dependencies: `pip install -r requirements.txt`
+- Launch notebooks: `jupyter notebook`
+- Common libraries already in `requirements.txt`: numpy/pandas/scipy/statsmodels/matplotlib/seaborn (+ scikit-learn, lifelines).
+
+## Notebook patterns to preserve
+
+- Prefer reproducibility: set a random seed once near the top (many notebooks use `np.random.seed(42)`).
+- Keep clear markdown structure (commonly starts with `# Solution` and `## Import Libraries`).
+- Avoid accidental duplication (e.g., repeated import/seed cells) unless it’s pedagogically necessary.
+- Minimize external data dependencies; generate synthetic data unless the folder already includes a dataset.
+
+## Repo-specific authoring helpers
+
+- Prompts for repurposing notebooks into posts live in `.github/prompts/` (e.g., LinkedIn/Substack repurpose).
+
+### Intended workflow (use these prompts in order)
+
+1. `ingestContentToQuestionFolder.prompt.md`
+
+- Input: target question folder + pasted problem/solution text.
+- Output: update that folder’s `README.md` (fixed section order) and create/update `solution.ipynb` with a runnable, well-structured draft.
+
+2. `reviewStatsNotebook.prompt.md`
+
+- Run from a clean kernel top-to-bottom; fix hidden-state issues, duplicated imports/seed cells, and reproducibility problems.
+- If linting is requested, run Ruff and apply safe fixes; keep changes local to the question folder.
+
+3. `repurposeNotebookToLinkedInSubstack.prompt.md`
+
+- Ground writing in the folder’s `README.md` + `solution.ipynb`.
+- Output: LinkedIn TLDR + Substack draft, plus two paste-ready README link lines for `## LinkedIn Post` and `## Substack Article`.
 
 ## Where to look first
-- High-level overview and workflow: `README.md`
+
+- Overview + workflow: `README.md`
 - Dependencies: `requirements.txt`
-- Per-question templates: any `*/**/README.md` and sibling `solution.ipynb`
+- A representative solved folder: `Basic-Statistics/03_Unbiased_Estimation_of_Variance/`

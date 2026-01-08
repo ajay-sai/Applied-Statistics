@@ -18,13 +18,25 @@ You are reviewing and improving an applied-statistics Jupyter notebook.
    - Restart kernel and run cells top-to-bottom.
    - Note any missing dependencies, import errors, hidden state dependencies, or execution-order assumptions.
 
-2. **Validate the statistical goal and data**
+2. **Run Ruff checks and fix issues (lint + format)**
+
+   - Run Ruff on the notebook (and any helper `.py` files in the same question folder, if present).
+   - Apply safe auto-fixes first, then format:
+     - `ruff check --fix <path>`
+     - `ruff format <path>`
+   - Treat Ruff findings as real quality issues to resolve, not just to report:
+     - Fix unused/duplicated imports, undefined names, shadowing, brittle exception handling, and dead code.
+     - Prefer small, targeted changes that preserve the notebook’s teaching intent.
+   - If a Ruff rule conflicts with the pedagogical goal, use the smallest, most local suppression (e.g., `# noqa: <RULE>` on a single line) and explain why.
+   - If Ruff is missing from the environment, add it to `requirements.txt` (lightweight dev dependency) and ensure the notebook still runs end-to-end.
+
+3. **Validate the statistical goal and data**
 
    - Identify the estimand/target (mean difference, regression coefficient, CI coverage, p-value, effect size, etc.).
    - Clarify what is observed vs simulated vs assumed.
    - Check data hygiene: missing values, encoding, units, duplicates, leakage, train/test contamination.
 
-3. **Check technical correctness**
+4. **Check technical correctness**
 
    - Verify formulas, estimators, transformations, and units.
    - Validate statistical tests/models against their assumptions (independence, normality/CLT, equal variance, linearity, etc.).
@@ -32,7 +44,7 @@ You are reviewing and improving an applied-statistics Jupyter notebook.
    - Identify conceptual pitfalls (selection bias, confounding, multiple testing, post-hoc choices, model misspecification, leakage).
    - Flag where results come from _pedagogical simulations_ vs _real-world observable data_.
 
-4. **Check code quality & robustness**
+5. **Check code quality & robustness**
 
    - Ensure random seeds are set consistently and reproducibly per section.
    - Remove/avoid no-op or misleading code.
@@ -40,7 +52,7 @@ You are reviewing and improving an applied-statistics Jupyter notebook.
    - Prefer vectorized operations over slow `apply` where practical.
    - Keep imports centralized; ensure required packages are listed (e.g., in `requirements.txt`).
 
-5. **Add diagnostics that build trust**
+6. **Add diagnostics that build trust**
 
    - Always report the key summary statistics relevant to the goal (means/medians, variability, sample sizes).
    - For hypothesis tests: include assumptions, effect sizes, confidence intervals, and interpretation.
@@ -48,22 +60,23 @@ You are reviewing and improving an applied-statistics Jupyter notebook.
    - For simulations: verify convergence/coverage with multiple runs and report Monte Carlo error.
    - For sampling/stratification/weighting (if present): show achieved sample sizes, weight ranges, effective sample size (ESS), and overlap/positivity checks.
 
-6. **Improve teaching/narrative structure**
+7. **Improve teaching/narrative structure**
 
    - Add a short **Goal / Setup / Key takeaway** for each section.
    - Replace placeholders with concise text.
    - Add a compact results table comparing baseline vs improved (and/or true vs observed vs corrected where applicable).
    - Keep markdown headings consistent and scannable.
 
-7. **Improve visuals**
+8. **Improve visuals**
 
    - Add plots that directly support the claims (distributions, bias shift, corrected vs true, trends).
    - Label axes, include legends, and use consistent bins/scales.
    - Prefer fewer, clearer plots over many redundant ones.
 
-8. **Deliverables**
+9. **Deliverables**
    - Provide:
      - A concise list of issues found (runtime + conceptual).
+   - Ruff summary: what was fixed automatically vs manually, and any remaining suppressions with justification.
      - Specific improvements with rationale.
      - If editing files: make minimal, targeted edits and ensure the notebook runs end-to-end.
 
