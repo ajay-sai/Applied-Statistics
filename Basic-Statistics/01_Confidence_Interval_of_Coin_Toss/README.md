@@ -28,9 +28,10 @@ See `solution.ipynb` for the derivation, worked example, and Python implementati
 - [Clopper–Pearson interval (Wikipedia)](https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Clopper%E2%80%93Pearson_interval)
 - [NIST/SEMATECH e-Handbook: Confidence Intervals](https://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm)
 
-
 ## LinkedIn Post
-https://www.linkedin.com/posts/ajay-sai_ajay-miryala-ajaymiryala-share-7414285065033015296-X5wu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB9gB1kB6Qhuvd4HLYfBYH93lOEoOdaZeJ0
+
+[LinkedIn post](https://www.linkedin.com/posts/ajay-sai_ajay-miryala-ajaymiryala-share-7414285065033015296-X5wu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB9gB1kB6Qhuvd4HLYfBYH93lOEoOdaZeJ0)
 
 ## Substack Article
-https://substack.com/@ajaymiryala/note/c-195941285?r=bq63v&utm_source=notes-share-action&utm_medium=web
+
+[Substack note](https://substack.com/@ajaymiryala/note/c-195941285?r=bq63v&utm_source=notes-share-action&utm_medium=web)
