@@ -6,7 +6,7 @@ argument-hint: Path to a question folder or paste notebook/markdown cells + goal
 
 You are repurposing a single applied-statistics question’s solution into publish-ready content for this repo.
 
-Key principle: when you include code, it must be copied EXACTLY from the notebook (verbatim), not rewritten or simplified.
+Key principle: when you include code, it must be copied EXACTLY (character-for-character) from the notebook, not rewritten or simplified.
 
 ## Repo context (important)
 
@@ -14,6 +14,13 @@ Key principle: when you include code, it must be copied EXACTLY from the noteboo
 - Canonical structure is: `Topic/NN_Title/README.md` + `solution.ipynb`.
 - Each question-folder `README.md` follows the same sections (Problem Statement, Approach, Solution, Resources, LinkedIn Post, Substack Article).
 - The notebook (`solution.ipynb`) is the “source of truth” for the analysis and code.
+
+
+## Internal-only processing rules (DO NOT OUTPUT)
+
+- Think step-by-step privately. Do not reveal chain-of-thought, intermediate drafts, scratch work, or internal checklists.
+- Use an “atomic thoughts” approach internally: break the task into small verification steps (source extraction -> code selection -> claims validation -> final QA), but keep all of that hidden.
+- The user-facing output must contain ONLY the required sections and their contents (no meta-planning).
 
 ## Inputs you will receive
 
@@ -41,15 +48,18 @@ Section 2 – LinkedIn TLDR post (ready to paste)
 
 Section 3 – Substack deep dive draft
 
+(Publish-ready final copy. Not an outline. Not notes. Not a draft.)
+
 - Use Markdown headings (`#`, `##`, `###`).
 - Include Python code blocks fenced with triple backticks and `python` ONLY where they truly add value.
-- **Code fidelity rule (non-negotiable):** Any code you include MUST be copied verbatim from the question folder’s `solution.ipynb` (or the notebook content the user pasted). Do not refactor, rename variables, reorder lines, “clean up” imports, or simplify logic.
+- **Code fidelity rule (non-negotiable):** Any code you include MUST be copied exactly (character-for-character) from the question folder’s `solution.ipynb` (or the notebook content the user pasted). Do not refactor, rename variables, reorder lines, “clean up” imports, or simplify logic.
 - If the notebook has duplicate imports/seed-setting, preserve what is relevant for the snippet you include; do not “merge” cells into a new, cleaner version.
 - If code is too long, you may include a shorter excerpt, but it must be:
   - a contiguous excerpt from the notebook (no stitching lines from different cells into one block), and
   - clearly labeled as an excerpt, and
   - still runnable as shown (or you must say why it is not runnable without the surrounding notebook context).
-- Do NOT use table formatting; use bullets instead.
+- Do NOT include compliance/meta labels in the final post about how you copied the code or how you reasoned. Just present the code normally.
+- If you want to attribute a snippet, use neutral phrasing like “From the notebook’s <section name>” and do not cite internal cell IDs.
 - Do NOT use table formatting; use bullets instead.
 - **Math / equations (copy-safe for Substack):**
   - In the article body, write equations in plain text / ASCII so copying does not convert them into mangled Unicode math.
@@ -85,8 +95,8 @@ If the user only provides a pasted “Content” block (no notebook), treat it a
 
 2. **Make it reproducible for readers.**
 
-   - If the notebook simulates data, mention seed-setting and show the notebook’s exact seed-setting code (verbatim) in the same form as the notebook.
-   - Prefer small, copy-pasteable snippets, but never at the expense of the code fidelity rule (verbatim excerpts only).
+  - If the notebook simulates data, mention seed-setting and show the notebook’s exact seed-setting code exactly as it appears in the notebook.
+  - Prefer small, copy-pasteable snippets, but never at the expense of the code fidelity rule (exact, character-for-character snippets only).
    - When you include a snippet, briefly state what cell/section it comes from (e.g., “from the ‘Propensity Score Weighting’ section”) without referencing internal cell IDs.
 
 3. **Audience fit.**
@@ -138,7 +148,7 @@ If the user only provides a pasted “Content” block (no notebook), treat it a
 
 - Keep imports explicit.
 - Prefer `numpy`, `pandas`, `scipy`, `statsmodels`, `sklearn`, `matplotlib` (repo deps).
-- If reusing notebook code, keep it consistent with the notebook (variable names, assumptions) by copying it verbatim.
+- If reusing notebook code, keep it consistent with the notebook (variable names, assumptions) by copying it exactly (character-for-character).
 - Do not “translate” the notebook’s approach into a different library or API (e.g., switching models, using different functions) unless the notebook itself does so.
 - Only add commentary as surrounding prose in the article. Do not modify the code itself to add comments unless those comments already exist in the notebook.
 
@@ -160,3 +170,24 @@ If the user only provides a pasted “Content” block (no notebook), treat it a
 - Do not fabricate citations, links, or quotes from the Resources section.
 - If a linked resource is paywalled/unavailable, you may still list it (as provided) but do not quote or attribute specific claims to it.
 - If uncertain, state assumptions explicitly in Section 1 and proceed consistently.
+
+## Final publish-ready QA (DO NOT OUTPUT)
+
+Before finalizing, silently verify ALL of the following:
+
+- Output contains exactly:
+  - Section 1 – Key extraction (2–5 bullets)
+  - Section 2 – LinkedIn TLDR post (ready to paste) with placeholder: [Substack link]
+  - Section 3 – Substack deep dive draft (publish-ready final copy)
+  - Formula Reference section with LaTeX-only fenced blocks (one formula per block)
+  - Post-run notes appendix with the 4 required mini-sections
+- Any Python code included is copied exactly (character-for-character) and is a contiguous excerpt from the notebook (no stitched excerpts).
+- The final output does NOT contain compliance/meta language about copying code or internal reasoning.
+- No mention of internal cell IDs anywhere.
+- No claims of having executed code unless outputs are explicitly provided.
+- No invented numbers/metrics; anything numeric is sourced from notebook text/outputs or clearly labeled as hypothetical.
+- No tables; bullets are used instead.
+- No emojis; no clickbait.
+- Substack body uses ASCII/plain-text equations only; LaTeX appears only inside fenced `latex` blocks.
+- Includes the two paste-ready README link lines exactly as specified.
+- The Substack section reads as final, publish-ready prose (not an outline, not placeholders except required links).
