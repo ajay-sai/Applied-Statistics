@@ -61,22 +61,24 @@ Section 3 – Substack deep dive draft
 - If you want to attribute a snippet, use neutral phrasing like "From the notebook's <section name>" and do not cite internal cell IDs.
 - Do NOT use table formatting; use bullets instead.
 - **Math / equations (Substack-safe copy-paste):**
-  - In the article body, write equations in **ASCII/plain-text notation only**. Substack's copy-paste fails with LaTeX, so use simple notation readers can follow:
-    - Instead of: \(\hat{d}_{MLE} = X_{\max}\)
-    - Write: `d_hat_MLE = X_max = max(X_i)`
-    - Instead of: \(E[X_{\max}] = \frac{N}{N+1} \cdot d\)
-    - Write: `E[X_max] = (N / (N+1)) * d`
-  - Use backticks around variable/formula references in prose for clarity (e.g., "the estimator `d_hat`").
-  - **LaTeX code blocks (for Substack's equation editor):** If you want readers to copy a formula into Substack's native math block, include a **separate "Formula Reference"** section at the end with one formula per LaTeX code block.
-    - Use ` ```latex ` (triple backtick + `latex` language tag).
-    - Include ONLY the LaTeX formula inside the fence (no surrounding prose, no `$...$` delimiters).
-    - Example:
+  - **Within Section 3, whenever you introduce a formula or equation, place it in its own LaTeX code block immediately after the explanatory text, at the exact point where it is relevant to the concept being discussed.** Do not defer formulas to the end or create a separate Formula Reference section.
+  - Use ` ```latex ` (triple backtick + `latex` language tag) for all mathematical formulas.
+  - Include ONLY the LaTeX formula inside the fence (no surrounding prose, no `$...$` delimiters, no spaces before/after).
+  - **Each formula gets its own separate code block on new lines** (not inline with prose).
+  - **Formulas and explanations must be separated—formula code blocks are distinct from paragraph text.**
+  - Example (correct structure):
+    - Prose paragraph: "The likelihood function for n independent observations is the product of individual probability densities:"
+    - Then on a new line, a separate code block:
       ```latex
-      \hat{d}_{MLE} = X_{\max} = \max_i X_i
+      L(\theta)=\prod_{i=1}^n f(x_i\mid\theta)
       ```
-    - Readers can copy from this block directly into Substack's `Equation` block without modification.
-  - **Do NOT mix ASCII equations in body text with LaTeX rendering.** Choose one: ASCII in prose, LaTeX in dedicated Formula Reference blocks only.
-- End with a dedicated **Formula Reference** section containing LaTeX-only fenced code blocks for all non-trivial formulas used (one formula per block). This section appears after the main article body.
+    - Then continue with the next paragraph after a blank line.
+  - Example (incorrect structure to avoid):
+    - ❌ "The consequence is a small-sample bias: E[sigma2_hat_MLE] = ((n-1)/n) \* sigma2"
+    - ❌ Do NOT mix ASCII notation, prose, and formulas on the same line or paragraph.
+    - ❌ Do NOT use inline ASCII formulas like `E[X] = ...` in the body text.
+  - Readers can copy from formula code blocks directly into Substack's `Equation` block without modification.
+  - **Do NOT create a separate "Formula Reference" section at the end.** All formulas are embedded inline within Section 3 at their point of conceptual use.
 
 Then add a short "Post-run notes" appendix (4 mini-sections):
 
@@ -144,11 +146,11 @@ If the user only provides a pasted "Content" block (no notebook), treat it as th
      - Background / Problem
      - What goes wrong (biases/pitfalls)
      - How to fix it (design + stats)
-     - Walkthrough with Python snippets (using ASCII notation for equations in prose)
+     - Walkthrough with Python snippets (embedding formulas inline at relevant conceptual steps)
      - Diagnostics readers should report (e.g., response rate, ESS, weight range, overlap/positivity)
      - Practical checklist
      - Conclusion + CTA
-     - Formula Reference (raw LaTeX in code blocks, one per formula)
+   - **Formulas embedded inline within relevant sections** (not deferred to an end section).
 
 ## Python code guidance
 
@@ -171,8 +173,9 @@ If the user only provides a pasted "Content" block (no notebook), treat it as th
 
 - No emojis.
 - No clickbait.
-- **No rendered LaTeX in body text.** Use ASCII notation only in prose.
-- **LaTeX appears only in Formula Reference section** as standalone code blocks.
+- **No inline ASCII equations in body text.** All formulas in code blocks.
+- **LaTeX appears only in dedicated ` ```latex ` code blocks** (one formula per block).
+- **Each formula is on its own line, separate from explanation prose.**
 - Don't use tables; use bullets instead.
 - Do not fabricate citations, links, or quotes from the Resources section.
 - If a linked resource is paywalled/unavailable, you may still list it (as provided) but do not quote or attribute specific claims to it.
@@ -186,8 +189,8 @@ Before finalizing, silently verify ALL of the following:
   - Section 1 – Key extraction (2–5 bullets)
   - Section 2 – LinkedIn TLDR post (ready to paste) with placeholder: [Substack link]
   - Section 3 – Substack deep dive draft (publish-ready final copy)
-  - Formula Reference section with LaTeX-only fenced blocks (one formula per block)
   - Post-run notes appendix with the 4 required mini-sections
+  - **NO separate Formula Reference section at the end.** All formulas embedded inline.
 - Any Python code included is copied exactly (character-for-character) and is a contiguous excerpt from the notebook (no stitched excerpts).
 - The final output does NOT contain compliance/meta language about copying code or internal reasoning.
 - No mention of internal cell IDs anywhere.
@@ -195,7 +198,8 @@ Before finalizing, silently verify ALL of the following:
 - No invented numbers/metrics; anything numeric is sourced from notebook text/outputs or clearly labeled as hypothetical.
 - No tables; bullets are used instead.
 - No emojis; no clickbait.
-- **Article body uses ASCII/plain-text equations only.** No LaTeX rendering in prose.
-- **LaTeX appears only in Formula Reference section** inside `latex` code blocks (no surrounding prose, no `$...$`).
+- **All formulas appear in ` ```latex ` code blocks, not inline with prose.**
+- **Each formula is in its own separate code block, placed immediately after the concept explanation where it is introduced.**
+- **No ASCII equation notation (like `E[X_max] = ...`) appears in body text.**
 - Includes the two paste-ready README link lines exactly as specified.
 - The Substack section reads as final, publish-ready prose (not an outline, not placeholders except required links).
